@@ -65,11 +65,11 @@ server_cert = create_certificate(server_req, ca_cert, ca_key, 1, 365*24*60*60)
 save_certificate("server.crt", server_cert)
 save_private_key("server.key", server_key)
 
-# Generate server certificate
+# Generate verifier certificate
 verifier_key = create_key_pair(crypto.TYPE_RSA, 4096)
 verifier_req = create_cert_request(verifier_key, "localhost")
-verifier_key_cert = create_certificate(verifier_req, ca_cert, ca_key, 1, 365*24*60*60)
+verifier_cert = create_certificate(verifier_req, ca_cert, ca_key, 2, 365*24*60*60)
 
-# Save server certificate
-save_certificate("verifier.crt", server_cert)
-save_private_key("verifier.key", server_key)
+# Save verifier certificate
+save_certificate("verifier.crt", verifier_cert)
+save_private_key("verifier.key", verifier_key)

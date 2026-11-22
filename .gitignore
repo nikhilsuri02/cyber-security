@@ -1,0 +1,11 @@
+# Keys and certificates are generated locally by A4/Code/genCertificates.py
+# and by server.py / verifier.py at startup. Never commit them.
+*.key
+*.pem
+*.crt
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/

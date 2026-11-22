@@ -1,0 +1,11 @@
+# Project 1
+tqdm
+# Project 3
+grpcio
+grpcio-tools
+pycryptodome
+# Project 4
+rsa
+ntplib
+requests
+pyOpenSSL<24.3  # genCertificates.py uses crypto.X509Req, removed in later releases

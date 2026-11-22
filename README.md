@@ -62,6 +62,20 @@
 2. Ensuring the server does not retain original documents.
 3. Mechanisms for third parties to securely verify the document's integrity and timestamp.
 
+### Running it locally
+No keys or certificates are stored in this repository. Generate your own before the first run:
+
+```bash
+pip install -r requirements.txt
+cd A4/Code
+python genCertificates.py   # creates ca.crt/ca.key, server.crt/server.key, verifier.crt/verifier.key
+python server.py            # time-stamping server on localhost:50051 (TLS)
+python verifier.py          # third-party verifier on localhost:50052 (TLS), in a second terminal
+python client.py            # stamps Report.pdf and Report.jpg, then asks the verifier to check them
+```
+
+`server.py` and `verifier.py` also create their RSA signing key pairs (`*_private_key.pem`, `*_public_key.pem`) when they start. All of these files are listed in `.gitignore` so they never get committed.
+
 ---
 
 Each project is designed to explore different aspects of cryptography and security, from basic encryption methods to complex systems involving digital signatures and public-key infrastructures.
